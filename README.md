@@ -1,5 +1,4 @@
-Here’s your **clean copy-paste README.md text**:
-
+![RAG](rag.png)
 ---
 
 # 🚀 RAG Document Retrieval System
