@@ -1,31 +1,207 @@
-# rag-doc-retrieval-system
-AI-powered document retrieval system using LangChain, FAISS vector search, and semantic similarity for building scalable RAG applications.
+Here’s your **clean copy-paste README.md text**:
 
+---
 
-Part 1: Introduction to RAG (Implied)
-Note: This repository starts detailing from Video #2.
+# 🚀 RAG Document Retrieval System
 
-Part 2: Vector Embeddings and RAG Architecture Explained
-This section covers the core theoretical foundations required before writing any code:
-The Context Window Problem: Understanding token limits (e.g., GPT-4's 1 million tokens) and why we cannot feed a petabyte of enterprise documents directly into an LLM
-.
-The Ingestion Pipeline (Preparation):
-Chunking: Breaking massive documents into smaller chunks (e.g., 1,000 tokens)
-.
-Embedding Models: Converting text into mathematical multi-dimensional vectors (e.g., OpenAI's text-embedding-3-small or text-embedding-3-large) to capture semantic meaning
-.
-Vector Databases: Storing vector embeddings in specialized databases like Pinecone, ChromaDB, or FAISS
-.
-The Retrieval Pipeline (Querying): Converting a user query into a vector, matching it against the database to retrieve the top 5-10 relevant chunks, and sending those specific English passages to the LLM to generate an answer
-.
-The Golden Rule: Maintaining strict consistency by using the exact same embedding model and dimensions for both documents and user queries
-.
-Part 3: Implementing the Ingestion Pipeline (Upcoming)
-Writing the code to implement the first half of the RAG system
-.
-Loading documents, applying chunking strategies, and passing text through embedding models to store in a vector database
-.
-Part 4: Similarity Matching & Retrieval (Upcoming)
-Deep dive into the specific mathematical algorithms used by the retriever component to calculate the semantic similarity between the user's query vector and the stored document vectors
-.
-Retrieving the closest matching chunks and feeding them to the LLM to generate the final output
+AI-powered document retrieval system using **LangChain, FAISS, and advanced retrieval techniques** to build scalable, production-ready **Retrieval-Augmented Generation (RAG)** pipelines.
+
+---
+
+## 🧠 Overview
+
+This project implements a **full RAG pipeline** from scratch, covering:
+
+* Document ingestion & preprocessing
+* Advanced chunking strategies
+* Semantic search & hybrid retrieval
+* Multi-query + rank fusion techniques
+* Answer generation using LLMs
+
+Built to **solve the context window problem** by retrieving only the most relevant data instead of feeding entire documents to an LLM.
+
+---
+
+## 🏗️ RAG Architecture
+
+### 🔹 1. Ingestion Pipeline (Preparation)
+
+* Load raw documents (PDF, TXT, etc.)
+* Apply chunking strategies:
+
+  * Recursive chunking
+  * Semantic chunking
+  * Agentic chunking
+* Convert text into embeddings
+* Store embeddings in vector DB (FAISS)
+
+---
+
+### 🔹 2. Retrieval Pipeline (Querying)
+
+* Convert user query → embedding
+* Perform retrieval using:
+
+  * Vector similarity search
+  * Multi-query retrieval
+  * Hybrid search (keyword + semantic)
+* Apply:
+
+  * Reciprocal Rank Fusion (RRF)
+  * Reranking (improves relevance)
+* Return top-K relevant chunks
+
+---
+
+### 🔹 3. Generation Pipeline
+
+* Combine:
+
+  * User query
+  * Retrieved context
+* Pass to LLM
+* Generate final answer
+
+Optional:
+
+* History-aware responses
+* Agent-based decision making
+
+---
+
+## 📂 Repository Structure
+
+```
+📁 docs/                          # Documentation
+
+📄 1_ingestion_pipeline.py        # Document ingestion
+📄 2_retrieval_pipeline.py        # Retrieval logic
+📄 3_answer_generation.py         # LLM response generation
+📄 4_history_aware_generation.py  # Conversational RAG
+
+📄 5_recursive_character_text_splitter.py  # Basic chunking
+📄 6_semantic_chunking.py                 # Meaning-based chunking
+📄 7_agentic_chunking.py                  # AI-driven chunking
+
+📄 8_multi_modal_rag.ipynb        # Multi-modal RAG
+📄 9_retrieval_methods.py         # Different retrieval strategies
+
+📄 10_multi_query_retrieval.py    # Query expansion
+📄 11_reciprocal_rank_fusion.py  # Rank fusion algorithm
+📄 12_hybrid_search.ipynb        # Hybrid retrieval
+📄 13_reranker.ipynb             # Result reranking
+
+📄 README.md
+```
+
+---
+
+## ⚙️ Key Concepts Implemented
+
+### 🔸 Context Window Problem
+
+LLMs have token limits → cannot process huge documents directly.
+
+👉 Solution: Retrieve only **relevant chunks**
+
+---
+
+### 🔸 Embeddings
+
+Text → high-dimensional vectors capturing semantic meaning
+
+* Same embedding model must be used for:
+
+  * Documents
+  * Queries
+
+---
+
+### 🔸 Vector Database
+
+Stores embeddings for fast similarity search
+
+* FAISS (used in this project)
+
+---
+
+### 🔸 Advanced Retrieval Techniques
+
+* **Multi-Query Retrieval** → Better recall
+* **Hybrid Search** → Combines keyword + semantic
+* **Reciprocal Rank Fusion (RRF)** → Combines multiple rankings
+* **Reranking** → Improves final relevance
+
+---
+
+## 🔥 Features
+
+✅ End-to-end RAG pipeline
+✅ Multiple chunking strategies
+✅ Advanced retrieval (RRF, Hybrid, Multi-query)
+✅ Modular & extensible codebase
+✅ Notebook + script support
+✅ Multi-modal RAG support
+
+---
+
+## 🐳 Local Setup (Docker)
+
+### Prerequisites
+
+* Docker
+* Python 3.10+
+
+### Steps
+
+1. Initialize backend services (e.g., Supabase if used)
+2. Configure environment variables
+3. Start Docker containers
+4. Run ingestion pipeline
+5. Start retrieval + generation
+
+---
+
+## 🧪 How It Works (Flow)
+
+```
+User Query
+   ↓
+Query Embedding
+   ↓
+Retriever (Vector + Hybrid + RRF)
+   ↓
+Top-K Relevant Chunks
+   ↓
+LLM
+   ↓
+Final Answer
+```
+
+---
+
+## 📌 Future Improvements
+
+* Real-time streaming responses
+* Better reranking models (cross-encoders)
+* UI interface (chat-based system)
+* Deployment on cloud (AWS/GCP)
+* Integration with AI learning systems
+
+---
+
+## 👨‍💻 Author
+
+Gautam Naik
+
+---
+
+## ⭐ Why This Project Matters
+
+This project goes beyond a basic RAG demo by implementing **production-level retrieval techniques** used in:
+
+* Enterprise search systems
+* AI copilots
+* Knowledge assistants
+
+---
