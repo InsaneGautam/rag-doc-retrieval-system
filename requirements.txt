@@ -1,0 +1,14 @@
+langchain
+langchain-community
+langchain-huggingface
+faiss-cpu
+sentence-transformers
+pypdf
+ragas
+rank_bm25
+streamlit
+pandas
+python-dotenv
+tiktoken
+langchain-chroma
+langchain-ollama
